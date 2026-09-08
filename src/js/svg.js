@@ -77,6 +77,12 @@
     var icon = options.icon;
     if (!icon) return '';
     var plan = options.plan || emptyPlan();
+
+    // Un ícono creado por el usuario aporta su propia geometría compuesta:
+    // `parts` se dibujan como superposiciones y `frame` como marco, igual que
+    // los detalles añadidos después desde el panel de edición.
+    var overlays = (icon.parts || []).concat(plan.overlays);
+    var frame = plan.frame || icon.frame || null;
     var color = options.color || '#38BDF8';
     var sw = Number(options.strokeWidth) || 2;
     var size = Number(options.size) || 128;
@@ -88,7 +94,7 @@
     var viewBox = round(-pad) + ' ' + round(-pad) + ' ' + round(VIEW + pad * 2) + ' ' + round(VIEW + pad * 2);
 
     // El marco obliga a encoger el ícono base para que quepa dentro.
-    var shrink = plan.frame ? 0.64 : 1;
+    var shrink = frame ? 0.64 : 1;
     var baseSw = sw / shrink;
 
     var transforms = [];
@@ -103,8 +109,8 @@
 
     var defs = '';
     var maskShapes = '';
-    for (var m = 0; m < plan.overlays.length; m++) {
-      var ov = plan.overlays[m];
+    for (var m = 0; m < overlays.length; m++) {
+      var ov = overlays[m];
       if (!ov.cutout) continue;
       var a = anchorOf(ov.anchor);
       var scale = ov.scale || a.scale;
@@ -152,24 +158,24 @@
     if (maskShapes) baseGroup = '<g mask="url(#' + maskId + ')">' + baseGroup + '</g>';
 
     var frameMarkup = '';
-    if (plan.frame) {
-      var fDash = plan.frame.dash ? round(sw * 1.9) + ' ' + round(sw * 1.35) : null;
+    if (frame) {
+      var fDash = frame.dash ? round(sw * 1.9) + ' ' + round(sw * 1.35) : null;
       var common = { 'stroke-width': round(sw), 'stroke-dasharray': fDash, fill: 'none' };
-      if (plan.frame.shape === 'circle') {
+      if (frame.shape === 'circle') {
         frameMarkup = '<circle' + attrs(Object.assign({ cx: CENTER, cy: CENTER, r: round(CENTER - sw * 0.55) }, common)) + '/>';
       } else {
         var inset = round(sw * 0.55);
         var side = round(VIEW - sw * 1.1);
         frameMarkup = '<rect' + attrs(Object.assign({
           x: inset, y: inset, width: side, height: side,
-          rx: plan.frame.shape === 'rounded' ? 5 : 0
+          rx: frame.shape === 'rounded' ? 5 : 0
         }, common)) + '/>';
       }
     }
 
     var overlayMarkup = '';
-    for (var o = 0; o < plan.overlays.length; o++) {
-      var overlay = plan.overlays[o];
+    for (var o = 0; o < overlays.length; o++) {
+      var overlay = overlays[o];
       var anc = anchorOf(overlay.anchor);
       var s = overlay.scale || anc.scale;
       var tx = round(anc.x - CENTER * s);

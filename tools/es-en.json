@@ -1,0 +1,2400 @@
+{
+  "flecha": [
+    "arrow"
+  ],
+  "flechas": [
+    "arrows"
+  ],
+  "circulo": [
+    "circle"
+  ],
+  "cuadrado": [
+    "square"
+  ],
+  "rectangulo": [
+    "rectangle",
+    "square"
+  ],
+  "triangulo": [
+    "triangle"
+  ],
+  "rombo": [
+    "diamond"
+  ],
+  "hexagono": [
+    "hexagon"
+  ],
+  "octagono": [
+    "octagon"
+  ],
+  "pentagono": [
+    "pentagon"
+  ],
+  "estrella": [
+    "star"
+  ],
+  "linea": [
+    "line"
+  ],
+  "lineas": [
+    "lines"
+  ],
+  "punto": [
+    "dot",
+    "point"
+  ],
+  "puntos": [
+    "dots"
+  ],
+  "cruz": [
+    "cross",
+    "x"
+  ],
+  "aspa": [
+    "cross",
+    "x"
+  ],
+  "marco": [
+    "frame",
+    "border"
+  ],
+  "borde": [
+    "border"
+  ],
+  "caja": [
+    "box"
+  ],
+  "cubo": [
+    "cube",
+    "box"
+  ],
+  "esfera": [
+    "sphere",
+    "globe"
+  ],
+  "anillo": [
+    "ring",
+    "circle"
+  ],
+  "curva": [
+    "curve"
+  ],
+  "onda": [
+    "wave"
+  ],
+  "espiral": [
+    "spiral"
+  ],
+  "forma": [
+    "shape"
+  ],
+  "figura": [
+    "shape"
+  ],
+  "arriba": [
+    "up",
+    "top"
+  ],
+  "abajo": [
+    "down",
+    "bottom"
+  ],
+  "izquierda": [
+    "left"
+  ],
+  "derecha": [
+    "right"
+  ],
+  "norte": [
+    "north"
+  ],
+  "sur": [
+    "south"
+  ],
+  "este": [
+    "east"
+  ],
+  "oeste": [
+    "west"
+  ],
+  "adelante": [
+    "forward"
+  ],
+  "atras": [
+    "back"
+  ],
+  "centro": [
+    "center"
+  ],
+  "medio": [
+    "middle",
+    "center"
+  ],
+  "horizontal": [
+    "horizontal"
+  ],
+  "vertical": [
+    "vertical"
+  ],
+  "diagonal": [
+    "diagonal"
+  ],
+  "ascendente": [
+    "ascending",
+    "rising",
+    "increasing"
+  ],
+  "descendente": [
+    "descending",
+    "falling",
+    "decreasing"
+  ],
+  "persona": [
+    "user",
+    "person"
+  ],
+  "personas": [
+    "users",
+    "people"
+  ],
+  "gente": [
+    "people"
+  ],
+  "usuario": [
+    "user"
+  ],
+  "usuarios": [
+    "users"
+  ],
+  "equipo": [
+    "team",
+    "users",
+    "group"
+  ],
+  "grupo": [
+    "group",
+    "users"
+  ],
+  "hombre": [
+    "man",
+    "user"
+  ],
+  "mujer": [
+    "woman",
+    "user"
+  ],
+  "nino": [
+    "child",
+    "baby"
+  ],
+  "bebe": [
+    "baby"
+  ],
+  "cara": [
+    "face"
+  ],
+  "rostro": [
+    "face"
+  ],
+  "cabeza": [
+    "head"
+  ],
+  "mano": [
+    "hand"
+  ],
+  "manos": [
+    "hands"
+  ],
+  "ojo": [
+    "eye"
+  ],
+  "ojos": [
+    "eyes"
+  ],
+  "boca": [
+    "mouth"
+  ],
+  "oreja": [
+    "ear"
+  ],
+  "pie": [
+    "foot"
+  ],
+  "cuerpo": [
+    "body"
+  ],
+  "cerebro": [
+    "brain"
+  ],
+  "corazon": [
+    "heart"
+  ],
+  "hueso": [
+    "bone"
+  ],
+  "sonrisa": [
+    "smile",
+    "happy"
+  ],
+  "cliente": [
+    "customer",
+    "user"
+  ],
+  "empleado": [
+    "employee",
+    "user"
+  ],
+  "jefe": [
+    "boss",
+    "manager",
+    "user"
+  ],
+  "contacto": [
+    "contact"
+  ],
+  "casa": [
+    "house",
+    "home"
+  ],
+  "hogar": [
+    "home",
+    "house"
+  ],
+  "edificio": [
+    "building"
+  ],
+  "oficina": [
+    "office",
+    "building"
+  ],
+  "empresa": [
+    "company",
+    "building"
+  ],
+  "fabrica": [
+    "factory"
+  ],
+  "planta": [
+    "plant",
+    "factory"
+  ],
+  "tienda": [
+    "store",
+    "shop"
+  ],
+  "almacen": [
+    "warehouse",
+    "storage"
+  ],
+  "banco": [
+    "bank",
+    "landmark"
+  ],
+  "hospital": [
+    "hospital"
+  ],
+  "escuela": [
+    "school"
+  ],
+  "universidad": [
+    "university",
+    "college"
+  ],
+  "iglesia": [
+    "church"
+  ],
+  "hotel": [
+    "hotel"
+  ],
+  "restaurante": [
+    "restaurant"
+  ],
+  "puerta": [
+    "door"
+  ],
+  "ventana": [
+    "window"
+  ],
+  "llave": [
+    "key"
+  ],
+  "candado": [
+    "lock"
+  ],
+  "cerradura": [
+    "lock"
+  ],
+  "escalera": [
+    "stairs",
+    "ladder"
+  ],
+  "techo": [
+    "roof"
+  ],
+  "dinero": [
+    "money",
+    "cash"
+  ],
+  "moneda": [
+    "coin",
+    "currency"
+  ],
+  "monedas": [
+    "coins"
+  ],
+  "billete": [
+    "banknote",
+    "bill"
+  ],
+  "efectivo": [
+    "cash"
+  ],
+  "tarjeta": [
+    "card"
+  ],
+  "tarjeta de credito": [
+    "credit card"
+  ],
+  "billetera": [
+    "wallet"
+  ],
+  "cartera": [
+    "wallet",
+    "portfolio"
+  ],
+  "alcancia": [
+    "piggy bank",
+    "savings"
+  ],
+  "caja fuerte": [
+    "safe",
+    "vault"
+  ],
+  "factura": [
+    "invoice",
+    "receipt"
+  ],
+  "boleta": [
+    "receipt"
+  ],
+  "recibo": [
+    "receipt"
+  ],
+  "precio": [
+    "price",
+    "tag"
+  ],
+  "costo": [
+    "cost",
+    "price"
+  ],
+  "pago": [
+    "payment"
+  ],
+  "cobro": [
+    "payment",
+    "billing"
+  ],
+  "descuento": [
+    "discount",
+    "percent"
+  ],
+  "porcentaje": [
+    "percent"
+  ],
+  "impuesto": [
+    "tax"
+  ],
+  "presupuesto": [
+    "budget",
+    "calculator"
+  ],
+  "inversion": [
+    "investment"
+  ],
+  "ahorro": [
+    "savings"
+  ],
+  "ganancia": [
+    "profit",
+    "trending up"
+  ],
+  "perdida": [
+    "loss",
+    "trending down"
+  ],
+  "bolsa": [
+    "bag",
+    "stocks"
+  ],
+  "compra": [
+    "purchase",
+    "cart"
+  ],
+  "carrito": [
+    "cart",
+    "shopping"
+  ],
+  "venta": [
+    "sale",
+    "sell"
+  ],
+  "negocio": [
+    "business"
+  ],
+  "contrato": [
+    "contract",
+    "file"
+  ],
+  "firma": [
+    "signature",
+    "pen"
+  ],
+  "sello": [
+    "stamp",
+    "badge"
+  ],
+  "grafico": [
+    "chart",
+    "graph"
+  ],
+  "grafica": [
+    "chart",
+    "graph"
+  ],
+  "barras": [
+    "bar",
+    "column"
+  ],
+  "torta": [
+    "pie"
+  ],
+  "pastel": [
+    "pie"
+  ],
+  "tendencia": [
+    "trend",
+    "trending"
+  ],
+  "datos": [
+    "data"
+  ],
+  "dato": [
+    "data"
+  ],
+  "tabla": [
+    "table"
+  ],
+  "matriz": [
+    "matrix",
+    "grid"
+  ],
+  "cuadricula": [
+    "grid"
+  ],
+  "reporte": [
+    "report",
+    "file"
+  ],
+  "informe": [
+    "report",
+    "file"
+  ],
+  "estadistica": [
+    "statistics"
+  ],
+  "analisis": [
+    "analytics",
+    "analysis"
+  ],
+  "analitica": [
+    "analytics"
+  ],
+  "indicador": [
+    "gauge",
+    "metric"
+  ],
+  "medidor": [
+    "gauge",
+    "meter"
+  ],
+  "tablero": [
+    "dashboard",
+    "board"
+  ],
+  "panel": [
+    "panel",
+    "dashboard"
+  ],
+  "porcentual": [
+    "percent"
+  ],
+  "promedio": [
+    "average"
+  ],
+  "suma": [
+    "sum",
+    "sigma",
+    "plus"
+  ],
+  "resta": [
+    "minus",
+    "subtract"
+  ],
+  "calculo": [
+    "calculate",
+    "calculator"
+  ],
+  "numero": [
+    "number",
+    "hash"
+  ],
+  "computadora": [
+    "computer",
+    "monitor"
+  ],
+  "ordenador": [
+    "computer",
+    "monitor"
+  ],
+  "laptop": [
+    "laptop"
+  ],
+  "pantalla": [
+    "screen",
+    "monitor",
+    "display"
+  ],
+  "monitor": [
+    "monitor"
+  ],
+  "teclado": [
+    "keyboard"
+  ],
+  "raton": [
+    "mouse"
+  ],
+  "impresora": [
+    "printer"
+  ],
+  "servidor": [
+    "server"
+  ],
+  "nube": [
+    "cloud"
+  ],
+  "base de datos": [
+    "database"
+  ],
+  "disco": [
+    "disk",
+    "hard drive"
+  ],
+  "memoria": [
+    "memory"
+  ],
+  "procesador": [
+    "cpu",
+    "processor"
+  ],
+  "chip": [
+    "cpu",
+    "chip"
+  ],
+  "red": [
+    "network"
+  ],
+  "internet": [
+    "internet",
+    "globe",
+    "web"
+  ],
+  "web": [
+    "web",
+    "globe"
+  ],
+  "sitio web": [
+    "website",
+    "globe"
+  ],
+  "enlace": [
+    "link"
+  ],
+  "vinculo": [
+    "link"
+  ],
+  "codigo": [
+    "code"
+  ],
+  "programacion": [
+    "code",
+    "coding"
+  ],
+  "software": [
+    "software",
+    "code"
+  ],
+  "aplicacion": [
+    "app",
+    "application"
+  ],
+  "celular": [
+    "smartphone",
+    "phone",
+    "mobile"
+  ],
+  "movil": [
+    "mobile",
+    "smartphone"
+  ],
+  "telefono": [
+    "phone"
+  ],
+  "tableta": [
+    "tablet"
+  ],
+  "camara": [
+    "camera"
+  ],
+  "microfono": [
+    "mic",
+    "microphone"
+  ],
+  "altavoz": [
+    "speaker",
+    "volume"
+  ],
+  "audifonos": [
+    "headphones"
+  ],
+  "bateria": [
+    "battery"
+  ],
+  "enchufe": [
+    "plug"
+  ],
+  "cable": [
+    "cable"
+  ],
+  "wifi": [
+    "wifi",
+    "wireless"
+  ],
+  "senal": [
+    "signal"
+  ],
+  "antena": [
+    "antenna",
+    "signal"
+  ],
+  "robot": [
+    "bot",
+    "robot"
+  ],
+  "inteligencia artificial": [
+    "ai",
+    "sparkles",
+    "bot"
+  ],
+  "algoritmo": [
+    "algorithm",
+    "code",
+    "workflow"
+  ],
+  "servidor en la nube": [
+    "cloud server"
+  ],
+  "documento": [
+    "document",
+    "file"
+  ],
+  "archivo": [
+    "file"
+  ],
+  "archivos": [
+    "files"
+  ],
+  "carpeta": [
+    "folder"
+  ],
+  "libro": [
+    "book"
+  ],
+  "cuaderno": [
+    "notebook"
+  ],
+  "libreta": [
+    "notebook"
+  ],
+  "nota": [
+    "note"
+  ],
+  "notas": [
+    "notes"
+  ],
+  "lista": [
+    "list"
+  ],
+  "checklist": [
+    "checklist",
+    "list checks"
+  ],
+  "tarea": [
+    "task",
+    "todo"
+  ],
+  "tareas": [
+    "tasks",
+    "todo"
+  ],
+  "calendario": [
+    "calendar"
+  ],
+  "fecha": [
+    "date",
+    "calendar"
+  ],
+  "agenda": [
+    "calendar",
+    "schedule"
+  ],
+  "reloj": [
+    "clock",
+    "watch"
+  ],
+  "hora": [
+    "time",
+    "clock"
+  ],
+  "tiempo": [
+    "time",
+    "clock"
+  ],
+  "cronometro": [
+    "timer",
+    "stopwatch"
+  ],
+  "alarma": [
+    "alarm"
+  ],
+  "temporizador": [
+    "timer"
+  ],
+  "lapiz": [
+    "pencil"
+  ],
+  "pluma": [
+    "pen"
+  ],
+  "boligrafo": [
+    "pen"
+  ],
+  "borrador": [
+    "eraser",
+    "draft"
+  ],
+  "regla": [
+    "ruler"
+  ],
+  "tijeras": [
+    "scissors"
+  ],
+  "clip": [
+    "paperclip"
+  ],
+  "grapa": [
+    "staple"
+  ],
+  "pizarra": [
+    "board",
+    "presentation"
+  ],
+  "presentacion": [
+    "presentation"
+  ],
+  "diapositiva": [
+    "slide",
+    "presentation"
+  ],
+  "correo": [
+    "mail",
+    "email"
+  ],
+  "sobre": [
+    "envelope",
+    "mail"
+  ],
+  "mensaje": [
+    "message"
+  ],
+  "chat": [
+    "chat",
+    "message"
+  ],
+  "conversacion": [
+    "conversation",
+    "chat"
+  ],
+  "comentario": [
+    "comment"
+  ],
+  "burbuja": [
+    "bubble"
+  ],
+  "bocadillo": [
+    "speech bubble",
+    "message"
+  ],
+  "dialogo": [
+    "dialog",
+    "speech"
+  ],
+  "campana": [
+    "bell"
+  ],
+  "notificacion": [
+    "notification",
+    "bell"
+  ],
+  "megafono": [
+    "megaphone"
+  ],
+  "buscar": [
+    "search",
+    "find"
+  ],
+  "busqueda": [
+    "search"
+  ],
+  "lupa": [
+    "search",
+    "magnifier"
+  ],
+  "filtro": [
+    "filter",
+    "funnel"
+  ],
+  "embudo": [
+    "funnel"
+  ],
+  "ordenar": [
+    "sort"
+  ],
+  "guardar": [
+    "save"
+  ],
+  "descargar": [
+    "download"
+  ],
+  "subir": [
+    "upload"
+  ],
+  "cargar": [
+    "upload",
+    "load"
+  ],
+  "copiar": [
+    "copy"
+  ],
+  "pegar": [
+    "paste",
+    "clipboard"
+  ],
+  "cortar": [
+    "cut",
+    "scissors"
+  ],
+  "editar": [
+    "edit",
+    "pencil"
+  ],
+  "borrar": [
+    "delete",
+    "trash"
+  ],
+  "eliminar": [
+    "delete",
+    "trash"
+  ],
+  "basura": [
+    "trash"
+  ],
+  "papelera": [
+    "trash"
+  ],
+  "agregar": [
+    "add",
+    "plus"
+  ],
+  "quitar": [
+    "remove",
+    "minus"
+  ],
+  "abrir": [
+    "open"
+  ],
+  "cerrar": [
+    "close",
+    "x"
+  ],
+  "bloquear": [
+    "lock",
+    "block"
+  ],
+  "desbloquear": [
+    "unlock",
+    "lock open"
+  ],
+  "compartir": [
+    "share"
+  ],
+  "enviar": [
+    "send"
+  ],
+  "recibir": [
+    "receive",
+    "inbox"
+  ],
+  "actualizar": [
+    "refresh",
+    "update"
+  ],
+  "sincronizar": [
+    "sync",
+    "refresh"
+  ],
+  "repetir": [
+    "repeat",
+    "loop"
+  ],
+  "girar": [
+    "rotate"
+  ],
+  "mover": [
+    "move"
+  ],
+  "arrastrar": [
+    "drag"
+  ],
+  "reproducir": [
+    "play"
+  ],
+  "pausar": [
+    "pause"
+  ],
+  "detener": [
+    "stop"
+  ],
+  "grabar": [
+    "record"
+  ],
+  "imprimir": [
+    "print",
+    "printer"
+  ],
+  "escanear": [
+    "scan"
+  ],
+  "configurar": [
+    "settings",
+    "cog"
+  ],
+  "ajustes": [
+    "settings",
+    "sliders"
+  ],
+  "configuracion": [
+    "settings"
+  ],
+  "engranaje": [
+    "gear",
+    "cog",
+    "settings"
+  ],
+  "herramienta": [
+    "tool",
+    "wrench"
+  ],
+  "llave inglesa": [
+    "wrench"
+  ],
+  "martillo": [
+    "hammer"
+  ],
+  "destornillador": [
+    "screwdriver"
+  ],
+  "construir": [
+    "build",
+    "hammer"
+  ],
+  "verificar": [
+    "check",
+    "verify"
+  ],
+  "aprobado": [
+    "approved",
+    "check"
+  ],
+  "correcto": [
+    "check",
+    "correct"
+  ],
+  "listo": [
+    "done",
+    "check"
+  ],
+  "completado": [
+    "complete",
+    "check"
+  ],
+  "exito": [
+    "success",
+    "check"
+  ],
+  "error": [
+    "error",
+    "x"
+  ],
+  "fallo": [
+    "error",
+    "alert"
+  ],
+  "advertencia": [
+    "warning",
+    "alert"
+  ],
+  "alerta": [
+    "alert",
+    "warning"
+  ],
+  "peligro": [
+    "danger",
+    "alert"
+  ],
+  "prohibido": [
+    "ban",
+    "forbidden"
+  ],
+  "informacion": [
+    "info",
+    "information"
+  ],
+  "pregunta": [
+    "question",
+    "help"
+  ],
+  "ayuda": [
+    "help"
+  ],
+  "duda": [
+    "question",
+    "help"
+  ],
+  "exclamacion": [
+    "exclamation",
+    "alert"
+  ],
+  "seguridad": [
+    "security",
+    "shield",
+    "lock"
+  ],
+  "escudo": [
+    "shield"
+  ],
+  "proteccion": [
+    "protection",
+    "shield"
+  ],
+  "riesgo": [
+    "risk",
+    "alert"
+  ],
+  "amenaza": [
+    "threat",
+    "alert"
+  ],
+  "huella": [
+    "fingerprint"
+  ],
+  "contrasena": [
+    "password",
+    "key",
+    "lock"
+  ],
+  "acceso": [
+    "access",
+    "key"
+  ],
+  "permiso": [
+    "permission",
+    "lock"
+  ],
+  "objetivo": [
+    "target",
+    "goal"
+  ],
+  "meta": [
+    "goal",
+    "target"
+  ],
+  "diana": [
+    "target",
+    "bullseye"
+  ],
+  "bandera": [
+    "flag"
+  ],
+  "trofeo": [
+    "trophy"
+  ],
+  "premio": [
+    "award",
+    "prize"
+  ],
+  "medalla": [
+    "medal"
+  ],
+  "corona": [
+    "crown"
+  ],
+  "insignia": [
+    "badge"
+  ],
+  "certificado": [
+    "certificate",
+    "award"
+  ],
+  "cohete": [
+    "rocket"
+  ],
+  "brujula": [
+    "compass"
+  ],
+  "mapa": [
+    "map"
+  ],
+  "ubicacion": [
+    "location",
+    "map pin"
+  ],
+  "ruta": [
+    "route",
+    "path"
+  ],
+  "camino": [
+    "path",
+    "route"
+  ],
+  "viaje": [
+    "trip",
+    "travel"
+  ],
+  "avion": [
+    "plane"
+  ],
+  "barco": [
+    "ship",
+    "boat"
+  ],
+  "auto": [
+    "car"
+  ],
+  "carro": [
+    "car"
+  ],
+  "coche": [
+    "car"
+  ],
+  "camion": [
+    "truck"
+  ],
+  "bicicleta": [
+    "bike",
+    "bicycle"
+  ],
+  "tren": [
+    "train"
+  ],
+  "bus": [
+    "bus"
+  ],
+  "moto": [
+    "motorcycle",
+    "bike"
+  ],
+  "combustible": [
+    "fuel"
+  ],
+  "gasolina": [
+    "fuel"
+  ],
+  "paquete": [
+    "package",
+    "box"
+  ],
+  "caja de envio": [
+    "package"
+  ],
+  "entrega": [
+    "delivery",
+    "truck"
+  ],
+  "envio": [
+    "shipping",
+    "send"
+  ],
+  "maleta": [
+    "suitcase",
+    "briefcase"
+  ],
+  "maletin": [
+    "briefcase"
+  ],
+  "mochila": [
+    "backpack"
+  ],
+  "equipaje": [
+    "luggage",
+    "suitcase"
+  ],
+  "idea": [
+    "idea",
+    "lightbulb"
+  ],
+  "bombilla": [
+    "lightbulb"
+  ],
+  "foco": [
+    "lightbulb",
+    "focus"
+  ],
+  "luz": [
+    "light"
+  ],
+  "rayo": [
+    "zap",
+    "lightning",
+    "bolt"
+  ],
+  "relampago": [
+    "lightning",
+    "zap"
+  ],
+  "energia": [
+    "energy",
+    "zap",
+    "power"
+  ],
+  "bateria de energia": [
+    "battery"
+  ],
+  "fuego": [
+    "fire",
+    "flame"
+  ],
+  "llama": [
+    "flame",
+    "fire"
+  ],
+  "agua": [
+    "water",
+    "droplet"
+  ],
+  "gota": [
+    "droplet"
+  ],
+  "lluvia": [
+    "rain"
+  ],
+  "sol": [
+    "sun"
+  ],
+  "luna": [
+    "moon"
+  ],
+  "estrellas": [
+    "stars"
+  ],
+  "nubes": [
+    "clouds"
+  ],
+  "viento": [
+    "wind"
+  ],
+  "nieve": [
+    "snow"
+  ],
+  "arbol": [
+    "tree"
+  ],
+  "hoja": [
+    "leaf"
+  ],
+  "planta verde": [
+    "plant",
+    "sprout"
+  ],
+  "flor": [
+    "flower"
+  ],
+  "semilla": [
+    "seed",
+    "sprout"
+  ],
+  "montana": [
+    "mountain"
+  ],
+  "tierra": [
+    "earth",
+    "globe"
+  ],
+  "mundo": [
+    "world",
+    "globe",
+    "earth"
+  ],
+  "planeta": [
+    "planet",
+    "globe"
+  ],
+  "reciclaje": [
+    "recycle"
+  ],
+  "sostenibilidad": [
+    "sustainability",
+    "leaf"
+  ],
+  "animal": [
+    "animal"
+  ],
+  "perro": [
+    "dog"
+  ],
+  "gato": [
+    "cat"
+  ],
+  "pajaro": [
+    "bird"
+  ],
+  "pez": [
+    "fish"
+  ],
+  "salud": [
+    "health",
+    "heart pulse"
+  ],
+  "medico": [
+    "doctor",
+    "stethoscope"
+  ],
+  "medicina": [
+    "medicine",
+    "pill"
+  ],
+  "pastilla": [
+    "pill"
+  ],
+  "jeringa": [
+    "syringe"
+  ],
+  "estetoscopio": [
+    "stethoscope"
+  ],
+  "pulso": [
+    "pulse",
+    "activity"
+  ],
+  "cruz medica": [
+    "cross",
+    "hospital"
+  ],
+  "vacuna": [
+    "vaccine",
+    "syringe"
+  ],
+  "musculo": [
+    "muscle",
+    "dumbbell"
+  ],
+  "pesas": [
+    "dumbbell"
+  ],
+  "gimnasio": [
+    "gym",
+    "dumbbell"
+  ],
+  "comida": [
+    "food"
+  ],
+  "bebida": [
+    "drink"
+  ],
+  "cafe": [
+    "coffee"
+  ],
+  "taza": [
+    "cup",
+    "coffee"
+  ],
+  "vaso": [
+    "glass",
+    "cup"
+  ],
+  "plato": [
+    "plate",
+    "food"
+  ],
+  "regalo": [
+    "gift"
+  ],
+  "fiesta": [
+    "party"
+  ],
+  "musica": [
+    "music"
+  ],
+  "nota musical": [
+    "music note"
+  ],
+  "video": [
+    "video"
+  ],
+  "pelicula": [
+    "film",
+    "movie"
+  ],
+  "foto": [
+    "photo",
+    "image"
+  ],
+  "imagen": [
+    "image",
+    "picture"
+  ],
+  "galeria": [
+    "gallery",
+    "images"
+  ],
+  "juego": [
+    "game"
+  ],
+  "deporte": [
+    "sport"
+  ],
+  "pelota": [
+    "ball"
+  ],
+  "reloj de arena": [
+    "hourglass"
+  ],
+  "educacion": [
+    "education",
+    "graduation"
+  ],
+  "graduacion": [
+    "graduation"
+  ],
+  "birrete": [
+    "graduation cap"
+  ],
+  "estudiante": [
+    "student"
+  ],
+  "profesor": [
+    "teacher",
+    "user"
+  ],
+  "clase": [
+    "class",
+    "school"
+  ],
+  "capacitacion": [
+    "training",
+    "education"
+  ],
+  "aprendizaje": [
+    "learning"
+  ],
+  "conocimiento": [
+    "knowledge",
+    "book"
+  ],
+  "biblioteca": [
+    "library",
+    "books"
+  ],
+  "investigacion": [
+    "research",
+    "search"
+  ],
+  "proceso": [
+    "process",
+    "workflow"
+  ],
+  "flujo": [
+    "flow",
+    "workflow"
+  ],
+  "diagrama": [
+    "diagram"
+  ],
+  "etapa": [
+    "stage",
+    "step"
+  ],
+  "paso": [
+    "step"
+  ],
+  "ciclo": [
+    "cycle",
+    "refresh"
+  ],
+  "engrane": [
+    "gear",
+    "cog"
+  ],
+  "cadena": [
+    "chain",
+    "link"
+  ],
+  "eslabon": [
+    "link"
+  ],
+  "conexion": [
+    "connection",
+    "link"
+  ],
+  "integracion": [
+    "integration",
+    "merge"
+  ],
+  "division": [
+    "split",
+    "divide"
+  ],
+  "union": [
+    "merge",
+    "union"
+  ],
+  "capas": [
+    "layers"
+  ],
+  "capa": [
+    "layer"
+  ],
+  "bloque": [
+    "block"
+  ],
+  "bloques": [
+    "blocks"
+  ],
+  "modulo": [
+    "module",
+    "box"
+  ],
+  "componente": [
+    "component",
+    "blocks"
+  ],
+  "arquitectura": [
+    "architecture",
+    "layers"
+  ],
+  "rompecabezas": [
+    "puzzle"
+  ],
+  "pieza": [
+    "piece",
+    "puzzle"
+  ],
+  "balanza": [
+    "scale",
+    "balance"
+  ],
+  "equilibrio": [
+    "balance",
+    "scale"
+  ],
+  "martillo de juez": [
+    "gavel"
+  ],
+  "ley": [
+    "law",
+    "gavel"
+  ],
+  "legal": [
+    "legal",
+    "gavel"
+  ],
+  "acuerdo": [
+    "handshake",
+    "agreement"
+  ],
+  "apreton": [
+    "handshake"
+  ],
+  "alianza": [
+    "partnership",
+    "handshake"
+  ],
+  "colaboracion": [
+    "collaboration",
+    "handshake"
+  ],
+  "crecimiento": [
+    "growth",
+    "trending up"
+  ],
+  "innovacion": [
+    "innovation",
+    "lightbulb"
+  ],
+  "estrategia": [
+    "strategy",
+    "compass",
+    "target"
+  ],
+  "liderazgo": [
+    "leadership",
+    "crown"
+  ],
+  "productividad": [
+    "productivity",
+    "zap"
+  ],
+  "eficiencia": [
+    "efficiency",
+    "gauge"
+  ],
+  "calidad": [
+    "quality",
+    "award"
+  ],
+  "auditoria": [
+    "audit",
+    "clipboard"
+  ],
+  "cumplimiento": [
+    "compliance",
+    "shield check"
+  ],
+  "gobierno": [
+    "governance",
+    "landmark"
+  ],
+  "gestion": [
+    "management",
+    "settings"
+  ],
+  "proyecto": [
+    "project",
+    "briefcase"
+  ],
+  "hito": [
+    "milestone",
+    "flag"
+  ],
+  "plazo": [
+    "deadline",
+    "calendar"
+  ],
+  "cronograma": [
+    "schedule",
+    "calendar"
+  ],
+  "recursos": [
+    "resources"
+  ],
+  "talento": [
+    "talent",
+    "users"
+  ],
+  "cultura": [
+    "culture",
+    "users"
+  ],
+  "comunicacion": [
+    "communication",
+    "megaphone"
+  ],
+  "marketing": [
+    "marketing",
+    "megaphone"
+  ],
+  "publicidad": [
+    "advertising",
+    "megaphone"
+  ],
+  "marca": [
+    "brand",
+    "tag"
+  ],
+  "logo": [
+    "logo",
+    "badge"
+  ],
+  "campana publicitaria": [
+    "campaign",
+    "megaphone"
+  ],
+  "grande": [
+    "big",
+    "large"
+  ],
+  "pequeno": [
+    "small",
+    "mini"
+  ],
+  "nuevo": [
+    "new"
+  ],
+  "viejo": [
+    "old"
+  ],
+  "rapido": [
+    "fast",
+    "zap"
+  ],
+  "lento": [
+    "slow"
+  ],
+  "abierto": [
+    "open"
+  ],
+  "cerrado": [
+    "closed"
+  ],
+  "activo": [
+    "active",
+    "on"
+  ],
+  "inactivo": [
+    "inactive",
+    "off"
+  ],
+  "visible": [
+    "visible",
+    "eye"
+  ],
+  "oculto": [
+    "hidden",
+    "eye off"
+  ],
+  "publico": [
+    "public",
+    "globe"
+  ],
+  "privado": [
+    "private",
+    "lock"
+  ],
+  "digital": [
+    "digital"
+  ],
+  "manual": [
+    "manual",
+    "hand"
+  ],
+  "automatico": [
+    "automatic",
+    "bot"
+  ],
+  "global": [
+    "global",
+    "globe"
+  ],
+  "local": [
+    "local",
+    "map pin"
+  ],
+  "interno": [
+    "internal"
+  ],
+  "externo": [
+    "external"
+  ],
+  "primero": [
+    "first"
+  ],
+  "ultimo": [
+    "last"
+  ],
+  "total": [
+    "total",
+    "sum"
+  ],
+  "paraguas": [
+    "umbrella"
+  ],
+  "sombrilla": [
+    "umbrella"
+  ],
+  "microscopio": [
+    "microscope"
+  ],
+  "termometro": [
+    "thermometer"
+  ],
+  "guitarra": [
+    "guitar"
+  ],
+  "sombrero": [
+    "hat"
+  ],
+  "gorra": [
+    "hat",
+    "cap"
+  ],
+  "dado": [
+    "dice"
+  ],
+  "dados": [
+    "dice"
+  ],
+  "matraz": [
+    "flask"
+  ],
+  "probeta": [
+    "flask",
+    "test tube"
+  ],
+  "atomo": [
+    "atom"
+  ],
+  "iman": [
+    "magnet"
+  ],
+  "boleto": [
+    "ticket"
+  ],
+  "entrada": [
+    "ticket"
+  ],
+  "pluma de ave": [
+    "feather"
+  ],
+  "ancla": [
+    "anchor"
+  ],
+  "huevo": [
+    "egg"
+  ],
+  "pizza": [
+    "pizza"
+  ],
+  "manzana": [
+    "apple"
+  ],
+  "pastel dulce": [
+    "cake"
+  ],
+  "cerveza": [
+    "beer"
+  ],
+  "vino": [
+    "wine"
+  ],
+  "camisa": [
+    "shirt"
+  ],
+  "zapato": [
+    "shoe"
+  ],
+  "reloj de pulsera": [
+    "watch"
+  ],
+  "lentes": [
+    "glasses"
+  ],
+  "anteojos": [
+    "glasses"
+  ],
+  "gafas": [
+    "glasses"
+  ],
+  "lampara": [
+    "lamp"
+  ],
+  "sofa": [
+    "sofa"
+  ],
+  "cama": [
+    "bed"
+  ],
+  "bano": [
+    "bath",
+    "toilet"
+  ],
+  "ducha": [
+    "shower",
+    "bath"
+  ],
+  "ventilador": [
+    "fan"
+  ],
+  "copo de nieve": [
+    "snowflake"
+  ],
+  "arcoiris": [
+    "rainbow"
+  ],
+  "carpa": [
+    "tent"
+  ],
+  "tienda de campana": [
+    "tent"
+  ],
+  "pala": [
+    "shovel"
+  ],
+  "hacha": [
+    "axe"
+  ],
+  "brocha": [
+    "brush"
+  ],
+  "pincel": [
+    "brush",
+    "paintbrush"
+  ],
+  "paleta": [
+    "palette"
+  ],
+  "espada": [
+    "sword",
+    "swords"
+  ],
+  "castillo": [
+    "castle"
+  ],
+  "torre": [
+    "tower"
+  ],
+  "puente": [
+    "bridge"
+  ],
+  "satelite": [
+    "satellite"
+  ],
+  "telescopio": [
+    "telescope"
+  ],
+  "ambulancia": [
+    "ambulance"
+  ],
+  "venda": [
+    "bandage"
+  ],
+  "vendaje": [
+    "bandage"
+  ],
+  "diente": [
+    "tooth"
+  ],
+  "olas": [
+    "waves"
+  ],
+  "velero": [
+    "sailboat"
+  ],
+  "tractor": [
+    "tractor"
+  ],
+  "montacargas": [
+    "forklift"
+  ],
+  "taladro": [
+    "drill"
+  ],
+  "pico": [
+    "pickaxe"
+  ],
+  "trigo": [
+    "wheat"
+  ],
+  "zanahoria": [
+    "carrot"
+  ],
+  "conejo": [
+    "rabbit"
+  ],
+  "tortuga": [
+    "turtle"
+  ],
+  "insecto": [
+    "bug"
+  ],
+  "arboles": [
+    "trees"
+  ],
+  "bosque": [
+    "trees",
+    "forest"
+  ],
+  "cerdito": [
+    "piggy bank"
+  ],
+  "farmacia": [
+    "pharmacy",
+    "pill"
+  ],
+  "ala": [
+    "wing"
+  ],
+  "globo": [
+    "balloon",
+    "globe"
+  ],
+  "cinta": [
+    "ribbon",
+    "tape"
+  ],
+  "caja de herramientas": [
+    "toolbox",
+    "wrench"
+  ],
+  "termo": [
+    "thermos",
+    "cup"
+  ],
+  "cuchillo": [
+    "knife"
+  ],
+  "tenedor": [
+    "fork",
+    "utensils"
+  ],
+  "cuchara": [
+    "spoon",
+    "utensils"
+  ],
+  "olla": [
+    "pot",
+    "cooking"
+  ],
+  "horno": [
+    "oven"
+  ],
+  "refrigerador": [
+    "refrigerator",
+    "fridge"
+  ],
+  "microondas": [
+    "microwave"
+  ],
+  "lavadora": [
+    "washing machine"
+  ],
+  "aspiradora": [
+    "vacuum"
+  ],
+  "sombra": [
+    "shadow"
+  ],
+  "espejo": [
+    "mirror",
+    "flip"
+  ],
+  "peine": [
+    "comb"
+  ],
+  "jabon": [
+    "soap"
+  ],
+  "cepillo": [
+    "brush"
+  ],
+  "llave de agua": [
+    "faucet",
+    "droplet"
+  ],
+  "foco de luz": [
+    "lightbulb"
+  ],
+  "vela": [
+    "candle"
+  ],
+  "linterna": [
+    "flashlight"
+  ],
+  "binoculares": [
+    "binoculars"
+  ],
+  "microfono de mano": [
+    "mic"
+  ],
+  "parlante": [
+    "speaker"
+  ],
+  "radio": [
+    "radio"
+  ],
+  "television": [
+    "tv",
+    "monitor"
+  ],
+  "control remoto": [
+    "remote"
+  ],
+  "joystick": [
+    "gamepad",
+    "joystick"
+  ],
+  "consola": [
+    "gamepad",
+    "terminal"
+  ],
+  "auriculares": [
+    "headphones"
+  ],
+  "disco duro": [
+    "hard drive"
+  ],
+  "usb": [
+    "usb"
+  ],
+  "memoria usb": [
+    "usb"
+  ],
+  "router": [
+    "router",
+    "wifi"
+  ],
+  "cargador": [
+    "charger",
+    "battery"
+  ],
+  "panel solar": [
+    "solar panel",
+    "sun"
+  ],
+  "turbina": [
+    "turbine",
+    "wind"
+  ],
+  "tuberia": [
+    "pipe"
+  ],
+  "valvula": [
+    "valve"
+  ],
+  "medidor de presion": [
+    "gauge"
+  ],
+  "balanza de peso": [
+    "scale"
+  ],
+  "cinta metrica": [
+    "ruler",
+    "measure"
+  ],
+  "nivel": [
+    "level"
+  ],
+  "compas": [
+    "compass",
+    "drafting compass"
+  ],
+  "escuadra": [
+    "ruler",
+    "triangle"
+  ],
+  "plano": [
+    "blueprint",
+    "map"
+  ],
+  "grua": [
+    "crane",
+    "construction"
+  ],
+  "casco": [
+    "hard hat",
+    "helmet"
+  ],
+  "chaleco": [
+    "vest"
+  ],
+  "guantes": [
+    "gloves"
+  ],
+  "extintor": [
+    "fire extinguisher"
+  ],
+  "senal de transito": [
+    "traffic sign",
+    "signpost"
+  ],
+  "semaforo": [
+    "traffic cone",
+    "traffic light"
+  ],
+  "cono": [
+    "cone"
+  ],
+  "barrera": [
+    "barrier",
+    "fence"
+  ],
+  "cerca": [
+    "fence"
+  ],
+  "muro": [
+    "wall",
+    "brick"
+  ],
+  "ladrillo": [
+    "brick"
+  ],
+  "cemento": [
+    "cement"
+  ],
+  "pintura": [
+    "paint"
+  ],
+  "rodillo": [
+    "paint roller"
+  ],
+  "clavo": [
+    "nail"
+  ],
+  "tornillo": [
+    "screw"
+  ],
+  "tuerca": [
+    "nut",
+    "bolt"
+  ],
+  "resorte": [
+    "spring"
+  ],
+  "rueda": [
+    "wheel"
+  ],
+  "motor": [
+    "engine",
+    "motor"
+  ],
+  "hospitalizacion": [
+    "hospital",
+    "bed"
+  ],
+  "receta": [
+    "prescription",
+    "file text"
+  ],
+  "expediente": [
+    "file",
+    "folder"
+  ],
+  "sello de aprobacion": [
+    "stamp",
+    "badge check"
+  ],
+  "urna": [
+    "ballot",
+    "vote"
+  ],
+  "voto": [
+    "vote",
+    "check"
+  ],
+  "encuesta": [
+    "survey",
+    "poll",
+    "clipboard"
+  ],
+  "formulario": [
+    "form",
+    "clipboard"
+  ],
+  "firma digital": [
+    "signature",
+    "pen"
+  ],
+  "identificacion": [
+    "id card",
+    "identity"
+  ],
+  "pasaporte": [
+    "passport",
+    "book"
+  ],
+  "visa": [
+    "visa",
+    "credit card"
+  ],
+  "aduana": [
+    "customs",
+    "package"
+  ],
+  "almacenaje": [
+    "storage",
+    "warehouse"
+  ],
+  "estante": [
+    "shelf",
+    "layers"
+  ],
+  "cajon": [
+    "drawer"
+  ],
+  "archivador": [
+    "archive",
+    "folder"
+  ],
+  "etiqueta": [
+    "tag",
+    "label"
+  ],
+  "codigo de barras": [
+    "barcode"
+  ],
+  "escaner": [
+    "scanner",
+    "scan"
+  ],
+  "cinta transportadora": [
+    "conveyor belt"
+  ],
+  "robotica": [
+    "robot",
+    "bot"
+  ],
+  "sensor": [
+    "sensor",
+    "radar"
+  ],
+  "dron": [
+    "drone"
+  ],
+  "gps": [
+    "gps",
+    "navigation"
+  ],
+  "brujula digital": [
+    "compass"
+  ],
+  "reloj inteligente": [
+    "watch",
+    "smartwatch"
+  ],
+  "solar": [
+    "solar"
+  ],
+  "solares": [
+    "solar"
+  ],
+  "paneles": [
+    "panels",
+    "panel"
+  ],
+  "energia solar": [
+    "solar panel",
+    "sun"
+  ],
+  "placa solar": [
+    "solar panel"
+  ]
+}

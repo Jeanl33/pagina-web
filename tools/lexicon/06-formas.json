@@ -1,0 +1,21 @@
+{
+  "circle":     { "c": "Formas", "k": ["circulo","redondo","circunferencia","aro","disco","circle","round","ring"] },
+  "square":     { "c": "Formas", "k": ["cuadrado","cuadro","caja cuadrada","square","box"] },
+  "rectangle-horizontal": { "c": "Formas", "k": ["rectangulo","rectangulo horizontal","barra","rectangle","bar"] },
+  "triangle":   { "c": "Formas", "k": ["triangulo","cuna","triangle"] },
+  "diamond":    { "c": "Formas", "k": ["rombo","diamante","losange","diamond","rhombus"] },
+  "hexagon":    { "c": "Formas", "k": ["hexagono","panal","hexagon"] },
+  "octagon":    { "c": "Formas", "k": ["octagono","octogono","octagon"] },
+  "pentagon":   { "c": "Formas", "k": ["pentagono","pentagon"] },
+  "cone":       { "c": "Formas", "k": ["cono","cone"] },
+  "cylinder":   { "c": "Formas", "k": ["cilindro","cylinder"] },
+  "pyramid":    { "c": "Formas", "k": ["piramide","pyramid"] },
+  "box":        { "c": "Formas", "k": ["cubo","caja 3d","volumen","cube","box","3d"] },
+  "shapes":     { "c": "Formas", "k": ["formas","figuras","geometria","shapes","geometry"] },
+  "spline":     { "c": "Formas", "k": ["curva","spline","bezier"] },
+  "slash":      { "c": "Formas", "k": ["barra inclinada","diagonal","slash"] },
+  "equal":      { "c": "Formas", "k": ["igual","equivalente","equals"] },
+  "asterisk":   { "c": "Formas", "k": ["asterisco","estrella de texto","asterisk"] },
+  "dot":        { "c": "Formas", "k": ["punto","bolita","dot"] },
+  "grip":       { "c": "Formas", "k": ["puntos","trama","patron de puntos","grip","dots"] }
+}

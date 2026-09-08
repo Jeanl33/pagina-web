@@ -294,20 +294,37 @@
     grande: 1, mini: 1, small: 1, big: 1, este: 1, esta: 1, ese: 1, esa: 1, mismo: 1
   };
 
-  function stripForSearch(clause) {
+  function stripForSearch(clause, keepPositions) {
     var tokens = clause.split(' ');
     var kept = [];
     for (var i = 0; i < tokens.length; i++) {
       var t = tokens[i];
       if (!t || FILLER[t]) continue;
-      var isPosition = false;
-      for (var p = 0; p < POSITIONS.length; p++) {
-        if (POSITIONS[p][0].indexOf(' ') === -1 && POSITIONS[p][0] === t) { isPosition = true; break; }
+      if (!keepPositions) {
+        var isPosition = false;
+        for (var p = 0; p < POSITIONS.length; p++) {
+          if (POSITIONS[p][0].indexOf(' ') === -1 && POSITIONS[p][0] === t) { isPosition = true; break; }
+        }
+        if (isPosition) continue;
       }
-      if (isPosition) continue;
       kept.push(t);
     }
     return kept.join(' ');
+  }
+
+  /** Frases de estilo (trazo, transformación, efecto) presentes en la cláusula. */
+  function matchedStyleTerms(clause) {
+    var terms = [];
+    var families = ['stroke', 'transform', 'effect'];
+    for (var f = 0; f < families.length; f++) {
+      var list = RULES_BY_GROUP[families[f]] || [];
+      for (var i = 0; i < list.length; i++) {
+        for (var t = 0; t < list[i].triggers.length; t++) {
+          if (phraseIn(clause, list[i].triggers[t])) { terms.push(list[i].triggers[t]); break; }
+        }
+      }
+    }
+    return terms;
   }
 
   /* --------------------------------------------------------------- parseo */
@@ -381,9 +398,27 @@
     return false;
   }
 
+  /** Familias de reglas que coinciden con una cláusula (usado por el compositor). */
+  function matchedGroups(clause) {
+    var found = [];
+    for (var group in RULES_BY_GROUP) {
+      if (!Object.prototype.hasOwnProperty.call(RULES_BY_GROUP, group)) continue;
+      var list = RULES_BY_GROUP[group];
+      for (var i = 0; i < list.length; i++) {
+        if (triggerScore(clause, list[i].triggers) > 0) { found.push(group); break; }
+      }
+    }
+    return found;
+  }
+
   window.Customizer = {
     split: split,
     build: build,
+    detectPosition: detectPosition,
+    stripForSearch: stripForSearch,
+    matchedGroups: matchedGroups,
+    matchedStyleTerms: matchedStyleTerms,
+    nextFreeAnchor: nextFreeAnchor,
     examples: [
       'Agrégale un bocadillo de diálogo sobre la cabeza',
       'Ponle un signo de dólar dentro del círculo',

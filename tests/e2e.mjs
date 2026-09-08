@@ -63,7 +63,8 @@ const check = (label, cond, extra = '') => {
 const initialCards = await page.locator('#results button').count();
 check('estado inicial con 6-12 resultados', initialCards >= 6 && initialCards <= 12, initialCards + ' tarjetas');
 check('ícono preseleccionado en el panel', await page.locator('#preview svg').count() === 1);
-check('contadores del header', (await page.locator('#stat-icons').textContent()) === '255');
+check('catálogo completo cargado', Number(await page.locator('#stat-icons').textContent()) >= 1815,
+  await page.locator('#stat-icons').textContent());
 
 // 2. Búsqueda ES y EN
 for (const [q, expectMin] of [['persona hablando',6],['crecimiento financiero',6],['teamwork',6],['sostenibilidad',6],['inteligencia artificial',6]]) {
@@ -72,6 +73,14 @@ for (const [q, expectMin] of [['persona hablando',6],['crecimiento financiero',6
   const n = await page.locator('#results button').count();
   const first = await page.locator('#results button').first().getAttribute('title');
   check(`búsqueda "${q}"`, n >= expectMin && n <= 12, `${n} resultados, top=${first}`);
+}
+
+// 2b. Vocabulario de cola larga que antes no existía
+for (const [q, expected] of [['paraguas','umbrella'],['tortuga','turtle'],['hexagono','hexagon'],['dado','dice'],['montacargas','forklift']]) {
+  await page.fill('#search-input', q);
+  await page.waitForTimeout(220);
+  const titles = await page.locator('#results button').evaluateAll(els => els.map(e => e.title));
+  check(`cola larga "${q}"`, titles.some(t => t.includes(expected)), titles.slice(0,3).join(' | '));
 }
 
 // 3. Selección
@@ -129,6 +138,59 @@ await page.fill('#details-input', 'zzzz qqqq');
 await page.click('#details-apply');
 check('avisa instrucción no interpretada', (await page.locator('#details-feedback').textContent()).includes('No se pudo interpretar'));
 await page.click('#details-clear');
+
+// 5b. Creación de íconos desde una descripción
+const compositions = [
+  ['un maletín con una flecha hacia arriba', ['briefcase', 'Subida']],
+  ['un círculo con un rayo dentro', ['(circle)', 'Rapidez']],
+  ['un cerebro rodeado de un marco circular', ['brain', 'Marco circular']],
+];
+for (const [description, mustMention] of compositions) {
+  await page.fill('#compose-input', description);
+  await page.click('#compose-btn');
+  await page.waitForTimeout(200);
+  const summary = (await page.locator('#compose-feedback').textContent()) || '';
+  const norm = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  const ok = mustMention.every(m => norm(summary).toLowerCase().includes(norm(m).toLowerCase()));
+  const preview = await page.locator('#preview').innerHTML();
+  check(`crear "${description.slice(0,34)}…"`, ok && preview.includes('<svg'), summary.trim().slice(0, 90));
+}
+
+check('el ícono creado queda seleccionado en el editor',
+  (await page.locator('#preview-name').textContent()).includes('custom-'));
+check('los íconos creados aparecen en "Mis íconos"',
+  (await page.locator('#my-icons > div').count()) === 3);
+
+// El ícono compuesto aporta geometría propia (base + marco/añadidos)
+const composedSvg = await page.evaluate(() => document.querySelector('#preview svg').outerHTML);
+check('la composición añade geometría al SVG', composedSvg.includes('<circle') && composedSvg.length > 400);
+
+// Persistencia entre recargas
+await page.reload({ waitUntil: 'networkidle' });
+await page.waitForTimeout(300);
+check('los íconos creados sobreviven a la recarga',
+  (await page.locator('#my-icons > div').count()) === 3);
+
+// Los íconos creados son localizables por el buscador
+await page.fill('#search-input', 'maletin flecha');
+await page.waitForTimeout(250);
+const foundCustom = await page.locator('#results button').evaluateAll(els => els.map(e => e.title));
+check('el ícono creado es localizable por búsqueda', foundCustom.some(t => t.includes('custom-')), foundCustom[0]);
+
+// Eliminación
+await page.locator('#my-icons > div').first().locator('button[aria-label="Eliminar ícono creado"]').click();
+await page.waitForTimeout(150);
+check('se puede eliminar un ícono creado', (await page.locator('#my-icons > div').count()) === 2);
+
+// Estado vacío que ofrece crear
+await page.fill('#search-input', 'zzzqqqxyz');
+await page.waitForTimeout(250);
+check('el estado vacío ofrece crear el ícono',
+  (await page.locator('#empty-state button').count()) === 1);
+
+await page.fill('#search-input', 'persona hablando');
+await page.waitForTimeout(250);
+await page.locator('#results button').first().click();
 
 // 6. Exportación (con el trazo por defecto)
 await page.locator('#stroke-range').fill('2');

@@ -9,10 +9,12 @@
   var Search = window.IconSearch;
   var Builder = window.SvgBuilder;
   var Customizer = window.Customizer;
+  var Composer = window.IconComposer;
   var Exporter = window.Exporter;
   var Toast = window.Toast;
 
   var STORAGE_KEY = 'iconlab:v1';
+  var CUSTOM_KEY = 'iconlab:custom:v1';
   var MIN_RESULTS = 6;
   var MAX_RESULTS = 12;
 
@@ -46,7 +48,8 @@
     size: 128,
     clauses: [],
     parsed: null,
-    exportPx: 1024
+    exportPx: 1024,
+    custom: []
   };
 
   var el = {};
@@ -74,6 +77,33 @@
   }
 
   function isHex(value) { return /^#[0-9a-fA-F]{6}$/.test(String(value || '')); }
+
+  /** Los íconos creados por el usuario viven en localStorage y se registran en el buscador. */
+  function loadCustomIcons() {
+    var stored = [];
+    try {
+      stored = JSON.parse(localStorage.getItem(CUSTOM_KEY) || '[]');
+    } catch (err) { stored = []; }
+    if (!Array.isArray(stored)) stored = [];
+
+    state.custom = [];
+    for (var i = 0; i < stored.length; i++) {
+      var icon = Composer.revive(stored[i]);
+      if (!icon) continue;
+      Search.register(icon);
+      state.custom.push(icon);
+    }
+  }
+
+  function saveCustomIcons() {
+    try {
+      localStorage.setItem(CUSTOM_KEY, JSON.stringify(state.custom.map(Composer.serialize)));
+      return true;
+    } catch (err) {
+      Toast.error('No se pudieron guardar tus íconos (almacenamiento del navegador lleno o bloqueado).');
+      return false;
+    }
+  }
 
   /* --------------------------------------------------------------- plantillas */
 
@@ -133,9 +163,26 @@
     if (!state.results.length) {
       el.results.classList.add('hidden');
       el.emptyState.classList.remove('hidden');
-      el.emptyState.textContent = state.query
-        ? 'Sin resultados para “' + state.query + '”. Prueba con un sinónimo o con el término en inglés.'
+      el.emptyState.innerHTML = '';
+      var message = document.createElement('p');
+      message.textContent = state.query
+        ? 'Sin resultados para “' + state.query + '”.'
         : 'Escribe un concepto para ver alternativas de íconos.';
+      el.emptyState.appendChild(message);
+
+      if (state.query) {
+        var cta = document.createElement('button');
+        cta.type = 'button';
+        cta.textContent = 'Crear un ícono para “' + state.query + '”';
+        cta.className =
+          'mt-3 rounded-xl bg-sky-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-sky-500';
+        cta.addEventListener('click', function () {
+          el.composeInput.value = state.query;
+          el.composeInput.focus();
+          composeIcon();
+        });
+        el.emptyState.appendChild(cta);
+      }
       el.resultsMeta.textContent = '';
       return;
     }
@@ -143,25 +190,90 @@
     el.emptyState.classList.add('hidden');
     el.resultsMeta.textContent = state.results.length + ' alternativas';
 
+    // Varios íconos pueden compartir término principal ("Crecimiento" para
+    // trending-up y sprout): en ese caso se añade el nombre técnico debajo.
+    var labelCount = {};
     state.results.forEach(function (result) {
-      var icon = result.icon;
-      var selected = state.selected && state.selected.n === icon.n;
-      var card = document.createElement('button');
-      card.type = 'button';
-      card.title = icon.l + ' · ' + icon.n;
-      card.className =
-        'group flex flex-col items-center gap-2 rounded-xl border p-3 transition focus:outline-none focus:ring-2 focus:ring-sky-500/50 ' +
-        (selected
-          ? 'border-sky-500 bg-sky-500/10 shadow-lg shadow-sky-900/30'
-          : 'border-slate-800 bg-slate-900/50 hover:border-slate-600 hover:bg-slate-800/60');
-      card.innerHTML =
-        '<span class="grid h-10 w-10 place-items-center">' +
-        Builder.build({ icon: icon, color: state.color, strokeWidth: 1.9, size: 34 }) +
-        '</span>' +
-        '<span class="w-full truncate text-center text-[11px] leading-tight text-slate-400 group-hover:text-slate-200">' +
-        escapeHtml(icon.l) + '</span>';
-      card.addEventListener('click', function () { selectIcon(icon); });
-      el.results.appendChild(card);
+      labelCount[result.icon.l] = (labelCount[result.icon.l] || 0) + 1;
+    });
+    state.results.forEach(function (result) {
+      el.results.appendChild(iconCard(result.icon, {
+        removable: !!result.icon.custom,
+        disambiguate: labelCount[result.icon.l] > 1
+      }));
+    });
+  }
+
+  /** Tarjeta de ícono reutilizada por los resultados y por "Mis íconos". */
+  function iconCard(icon, options) {
+    options = options || {};
+    var selected = state.selected && state.selected.n === icon.n;
+    var card = document.createElement('div');
+    card.className = 'relative';
+
+    var button = document.createElement('button');
+    button.type = 'button';
+    button.title = (icon.desc || icon.l) + ' · ' + icon.n;
+    button.className =
+      'group flex w-full flex-col items-center gap-2 rounded-xl border p-3 transition focus:outline-none focus:ring-2 focus:ring-sky-500/50 ' +
+      (selected
+        ? 'border-sky-500 bg-sky-500/10 shadow-lg shadow-sky-900/30'
+        : 'border-slate-800 bg-slate-900/50 hover:border-slate-600 hover:bg-slate-800/60');
+    button.innerHTML =
+      '<span class="grid h-10 w-10 place-items-center">' +
+      Builder.build({ icon: icon, color: state.color, strokeWidth: 1.9, size: 34 }) +
+      '</span>' +
+      '<span class="w-full truncate text-center text-[11px] leading-tight text-slate-400 group-hover:text-slate-200">' +
+      escapeHtml(icon.l) + '</span>' +
+      (options.disambiguate
+        ? '<span class="w-full truncate text-center text-[10px] leading-none text-slate-600">' +
+          escapeHtml(icon.n) + '</span>'
+        : '');
+    button.addEventListener('click', function () { selectIcon(icon); });
+    card.appendChild(button);
+
+    if (options.removable) {
+      var remove = document.createElement('button');
+      remove.type = 'button';
+      remove.setAttribute('aria-label', 'Eliminar ícono creado');
+      remove.title = 'Eliminar';
+      remove.className =
+        'absolute -right-1.5 -top-1.5 grid h-5 w-5 place-items-center rounded-full border border-slate-700 ' +
+        'bg-slate-950 text-xs text-slate-400 transition hover:border-rose-500 hover:text-rose-400';
+      remove.textContent = '\u00d7';
+      remove.addEventListener('click', function (e) {
+        e.stopPropagation();
+        deleteCustomIcon(icon.n);
+      });
+      card.appendChild(remove);
+    }
+    return card;
+  }
+
+  function renderMyIcons() {
+    var section = document.getElementById('my-icons-section');
+    el.myIcons.innerHTML = '';
+    if (!state.custom.length) { section.classList.add('hidden'); return; }
+    section.classList.remove('hidden');
+    for (var i = state.custom.length - 1; i >= 0; i--) {
+      el.myIcons.appendChild(iconCard(state.custom[i], { removable: true }));
+    }
+  }
+
+  function renderComposeExamples() {
+    el.composeExamples.innerHTML = '';
+    Composer.examples.forEach(function (example) {
+      var chip = document.createElement('button');
+      chip.type = 'button';
+      chip.textContent = example;
+      chip.className =
+        'rounded-full border border-slate-800 bg-slate-950/60 px-3 py-1.5 text-xs text-slate-400 ' +
+        'transition hover:border-sky-600 hover:text-sky-300';
+      chip.addEventListener('click', function () {
+        el.composeInput.value = example;
+        composeIcon();
+      });
+      el.composeExamples.appendChild(chip);
     });
   }
 
@@ -246,7 +358,99 @@
   function selectIcon(icon) {
     state.selected = icon;
     renderResults();
+    renderMyIcons();
     renderPreview();
+  }
+
+  /** Crea un ícono a partir de la descripción escrita y lo abre en el editor. */
+  function composeIcon() {
+    var description = el.composeInput.value.trim();
+    el.composeFeedback.innerHTML = '';
+    if (!description) { el.composeInput.focus(); return; }
+
+    var result = Composer.create(description);
+    if (!result) {
+      feedback(el.composeFeedback, 'amber',
+        'No se reconoció ningún elemento en “' + description + '”. ' +
+        'Nombra objetos concretos: «un maletín con una flecha hacia arriba».');
+      Toast.error('No se pudo componer el ícono.');
+      return;
+    }
+
+    Search.register(result.icon);
+    state.custom.push(result.icon);
+    saveCustomIcons();
+    renderMyIcons();
+
+    // Los ajustes de estilo mencionados al crear se aplican con el motor de
+    // detalles, para que el usuario pueda quitarlos después uno por uno.
+    if (result.styleClauses.length) {
+      el.detailsInput.value = result.styleClauses.join(', ');
+      state.clauses = Customizer.split(el.detailsInput.value);
+      state.parsed = Customizer.build(state.clauses);
+    } else {
+      clearDetails();
+    }
+
+    selectIcon(result.icon);
+    renderDetails();
+
+    // Se muestra también el nombre técnico: dos íconos distintos pueden compartir
+    // el mismo término principal en español (p. ej. "Negocio").
+    var summary = 'Base: ' + result.base.l + ' (' + result.base.n + ')';
+    if (result.partLabels.length) summary += ' · Añadidos: ' + result.partLabels.join(', ');
+    if (result.frame) summary += ' · Marco ' + (result.frame.shape === 'circle' ? 'circular' : result.frame.shape);
+    feedback(el.composeFeedback, 'sky', summary);
+
+    if (result.unknown.length) {
+      feedback(el.composeFeedback, 'amber',
+        'No se interpretó: “' + result.unknown.join('”, “') + '”. Se omitió esa parte.');
+    }
+    Toast.success('Ícono creado y guardado en “Mis íconos”.');
+    el.composeInput.value = '';
+  }
+
+  function feedback(container, tone, text) {
+    var tones = {
+      sky: 'border-sky-800/60 bg-sky-950/40 text-sky-200',
+      amber: 'border-amber-700/50 bg-amber-950/40 text-amber-200'
+    };
+    var node = document.createElement('p');
+    node.className = 'rounded-lg border px-3 py-2 ' + (tones[tone] || tones.sky);
+    node.textContent = text;
+    container.appendChild(node);
+  }
+
+  function deleteCustomIcon(name) {
+    for (var i = 0; i < state.custom.length; i++) {
+      if (state.custom[i].n !== name) continue;
+      state.custom.splice(i, 1);
+      break;
+    }
+    Search.unregister(name);
+    saveCustomIcons();
+    if (state.selected && state.selected.n === name) {
+      state.selected = null;
+      clearDetails();
+    }
+    runSearch(state.query);
+    renderMyIcons();
+    renderPreview();
+    Toast.info('Ícono eliminado.');
+  }
+
+  function clearCustomIcons() {
+    if (!state.custom.length) return;
+    if (!window.confirm('¿Eliminar los ' + state.custom.length + ' íconos que creaste? No se puede deshacer.')) return;
+    for (var i = 0; i < state.custom.length; i++) Search.unregister(state.custom[i].n);
+    var removedSelected = state.selected && state.selected.custom;
+    state.custom = [];
+    saveCustomIcons();
+    if (removedSelected) { state.selected = null; clearDetails(); }
+    runSearch(state.query);
+    renderMyIcons();
+    renderPreview();
+    Toast.info('Se eliminaron tus íconos creados.');
   }
 
   function setColor(hex) {
@@ -372,6 +576,12 @@
       savePreferences();
     });
 
+    el.composeBtn.addEventListener('click', composeIcon);
+    el.composeInput.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') { e.preventDefault(); composeIcon(); }
+    });
+    el.myIconsClear.addEventListener('click', clearCustomIcons);
+
     el.detailsApply.addEventListener('click', applyDetails);
     el.detailsClear.addEventListener('click', clearDetails);
     el.detailsInput.addEventListener('keydown', function (e) {
@@ -395,7 +605,10 @@
       detailsApply: 'details-apply', detailsClear: 'details-clear', detailsChips: 'details-chips',
       detailsFeedback: 'details-feedback', btnCopyPng: 'btn-copy-png',
       btnDownloadSvg: 'btn-download-svg', btnDownloadPng: 'btn-download-png',
-      exportScale: 'export-scale', statIcons: 'stat-icons', statTerms: 'stat-terms'
+      exportScale: 'export-scale', statIcons: 'stat-icons', statCurated: 'stat-curated',
+      composeInput: 'compose-input', composeBtn: 'compose-btn',
+      composeExamples: 'compose-examples', composeFeedback: 'compose-feedback',
+      myIcons: 'my-icons', myIconsClear: 'my-icons-clear'
     };
     for (var key in ids) {
       if (Object.prototype.hasOwnProperty.call(ids, key)) el[key] = document.getElementById(ids[key]);
@@ -411,8 +624,9 @@
     loadPreferences();
     Search.init(window.ICONLAB_DATA);
 
+    loadCustomIcons();
     el.statIcons.textContent = Search.all().length;
-    el.statTerms.textContent = Search.termCount();
+    el.statCurated.textContent = Search.curatedCount();
     el.colorPicker.value = state.color;
     el.colorHex.value = state.color;
     el.strokeRange.value = state.strokeWidth;
@@ -424,7 +638,9 @@
       Customizer.examples[3].toLowerCase();
 
     renderSuggestions();
+    renderComposeExamples();
     renderPalette();
+    renderMyIcons();
     bindEvents();
 
     // Estado inicial útil en lugar de una pantalla vacía.
