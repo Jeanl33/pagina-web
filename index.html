@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IconLab · Íconos vectoriales para PowerPoint</title>
+  <meta name="description" content="Busca, personaliza y exporta íconos vectoriales con fondo transparente listos para pegar en PowerPoint." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2338bdf8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m12 3-1.9 5.8a2 2 0 0 1-1.287 1.288L3 12l5.8 1.9a2 2 0 0 1 1.288 1.287L12 21l1.9-5.8a2 2 0 0 1 1.287-1.288L21 12l-5.8-1.9a2 2 0 0 1-1.288-1.287Z'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./assets/styles.css" />
+</head>
+<body class="min-h-screen bg-slate-950 text-slate-200 antialiased selection:bg-sky-500/30">
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="sticky top-0 z-30 border-b border-slate-800/80 bg-slate-950/85 backdrop-blur">
+    <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
+      <div class="flex items-center gap-3">
+        <div class="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-sky-500 to-indigo-600 shadow-lg shadow-sky-500/20">
+          <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m12 3-1.9 5.8a2 2 0 0 1-1.287 1.288L3 12l5.8 1.9a2 2 0 0 1 1.288 1.287L12 21l1.9-5.8a2 2 0 0 1 1.287-1.288L21 12l-5.8-1.9a2 2 0 0 1-1.288-1.287Z"/>
+          </svg>
+        </div>
+        <div class="leading-tight">
+          <h1 class="text-base font-semibold text-white sm:text-lg">IconLab</h1>
+          <p class="hidden text-xs text-slate-400 sm:block">Íconos vectoriales listos para PowerPoint</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 text-xs text-slate-400">
+        <span class="hidden rounded-full border border-slate-800 bg-slate-900 px-3 py-1 md:inline-block">
+          <span id="stat-icons">0</span> íconos · <span id="stat-terms">0</span> términos ES/EN
+        </span>
+        <a href="https://lucide.dev" target="_blank" rel="noopener noreferrer"
+           class="rounded-full border border-slate-800 bg-slate-900 px-3 py-1 transition hover:border-slate-700 hover:text-slate-200">Lucide ISC</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:py-8">
+
+    <!-- ===================== BUSCADOR ===================== -->
+    <section class="mb-6">
+      <label for="search-input" class="mb-2 block text-sm font-medium text-slate-300">
+        Busca un concepto en español o inglés
+      </label>
+      <div class="relative">
+        <svg viewBox="0 0 24 24" class="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-500" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/>
+        </svg>
+        <input id="search-input" type="search" autocomplete="off" spellcheck="false"
+          placeholder="persona hablando, trabajo en equipo, crecimiento financiero…"
+          class="w-full rounded-2xl border border-slate-800 bg-slate-900 py-4 pl-12 pr-4 text-base text-white placeholder-slate-500 shadow-inner outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-500/30" />
+      </div>
+      <div id="suggestions" class="mt-3 flex flex-wrap gap-2"></div>
+    </section>
+
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-12">
+
+      <!-- ===================== RESULTADOS ===================== -->
+      <section class="lg:col-span-7 xl:col-span-7">
+        <div class="mb-3 flex items-baseline justify-between">
+          <h2 class="text-sm font-semibold uppercase tracking-wider text-slate-400">Resultados</h2>
+          <p id="results-meta" class="text-xs text-slate-500"></p>
+        </div>
+        <div id="results" class="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-4 xl:grid-cols-5"></div>
+        <p id="empty-state" class="hidden rounded-2xl border border-dashed border-slate-800 bg-slate-900/40 px-6 py-10 text-center text-sm text-slate-500"></p>
+      </section>
+
+      <!-- ===================== PANEL DE EDICIÓN ===================== -->
+      <section class="lg:col-span-5 xl:col-span-5">
+        <div class="lg:sticky lg:top-24 space-y-4">
+
+          <!-- Previsualización -->
+          <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
+            <div class="mb-3 flex items-center justify-between">
+              <h2 class="text-sm font-semibold uppercase tracking-wider text-slate-400">Previsualización</h2>
+              <span id="preview-name" class="truncate text-xs text-slate-500"></span>
+            </div>
+            <div class="checkerboard grid min-h-[220px] place-items-center rounded-xl border border-slate-800 p-4">
+              <div id="preview" class="grid place-items-center"></div>
+            </div>
+            <p class="mt-2 text-center text-[11px] text-slate-500">La trama indica el fondo transparente del archivo exportado.</p>
+          </div>
+
+          <!-- Color, trazo y tamaño -->
+          <div class="space-y-4 rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
+            <h3 class="text-sm font-semibold text-slate-300">Color</h3>
+            <div id="palette" class="grid grid-cols-6 gap-2 sm:grid-cols-12 lg:grid-cols-6"></div>
+            <div class="flex items-center gap-3">
+              <input id="color-picker" type="color" value="#38BDF8"
+                class="h-10 w-14 cursor-pointer rounded-lg border border-slate-700 bg-slate-800 p-1" aria-label="Selector de color" />
+              <input id="color-hex" type="text" value="#38BDF8" maxlength="7" spellcheck="false"
+                class="w-32 rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 font-mono text-sm uppercase text-white outline-none focus:border-sky-500" aria-label="Color hexadecimal" />
+              <span class="text-xs text-slate-500">Hex libre</span>
+            </div>
+            <div class="border-t border-slate-800 pt-4">
+              <div class="mb-1 flex items-center justify-between text-sm">
+                <label for="stroke-range" class="font-medium text-slate-300">Grosor de línea</label>
+                <span id="stroke-value" class="font-mono text-xs text-sky-400">2.00</span>
+              </div>
+              <input id="stroke-range" type="range" min="0.5" max="4" step="0.05" value="2" class="range w-full" />
+            </div>
+            <div class="mt-4">
+              <div class="mb-1 flex items-center justify-between text-sm">
+                <label for="size-range" class="font-medium text-slate-300">Tamaño final</label>
+                <span id="size-value" class="font-mono text-xs text-sky-400">128 px</span>
+              </div>
+              <input id="size-range" type="range" min="32" max="512" step="8" value="128" class="range w-full" />
+            </div>
+          </div>
+
+          <!-- Detalles personalizados -->
+          <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
+            <h3 class="mb-1 text-sm font-semibold text-slate-300">Agregar o modificar detalles a este ícono</h3>
+            <p class="mb-3 text-xs text-slate-500">
+              Escribe instrucciones en lenguaje natural. Separa varias con coma o “y”.
+            </p>
+            <textarea id="details-input" rows="3" spellcheck="false"
+              placeholder="Ej.: agrégale un bocadillo de diálogo sobre la cabeza, ponle un marco circular alrededor"
+              class="w-full resize-y rounded-xl border border-slate-800 bg-slate-950 px-3 py-2 text-sm text-white placeholder-slate-600 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20"></textarea>
+            <div class="mt-2 flex flex-wrap items-center gap-2">
+              <button id="details-apply" type="button"
+                class="rounded-lg bg-sky-600 px-3 py-2 text-sm font-medium text-white transition hover:bg-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/50">
+                Aplicar detalles
+              </button>
+              <button id="details-clear" type="button"
+                class="rounded-lg border border-slate-800 px-3 py-2 text-sm text-slate-400 transition hover:border-slate-700 hover:text-slate-200">
+                Limpiar
+              </button>
+            </div>
+            <div id="details-chips" class="mt-3 flex flex-wrap gap-1.5"></div>
+            <div id="details-feedback" class="mt-3 space-y-2 text-xs"></div>
+          </div>
+
+          <!-- Exportación -->
+          <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
+            <h3 class="mb-3 text-sm font-semibold text-slate-300">Exportar</h3>
+            <div class="grid gap-2">
+              <button id="btn-copy-png" type="button"
+                class="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-sky-600 to-indigo-600 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-sky-900/40 transition hover:from-sky-500 hover:to-indigo-500 focus:outline-none focus:ring-2 focus:ring-sky-400/60 disabled:cursor-not-allowed disabled:opacity-40">
+                <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                </svg>
+                Copiar para PPTX (PNG)
+              </button>
+              <div class="grid grid-cols-2 gap-2">
+                <button id="btn-download-svg" type="button"
+                  class="flex items-center justify-center gap-2 rounded-xl border border-slate-800 bg-slate-900 px-4 py-2.5 text-sm font-medium text-slate-200 transition hover:border-slate-700 hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-40">
+                  <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/>
+                  </svg>
+                  Descargar SVG
+                </button>
+                <button id="btn-download-png" type="button"
+                  class="flex items-center justify-center gap-2 rounded-xl border border-slate-800 bg-slate-900 px-4 py-2.5 text-sm font-medium text-slate-200 transition hover:border-slate-700 hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-40">
+                  <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/>
+                  </svg>
+                  Descargar PNG
+                </button>
+              </div>
+            </div>
+            <div class="mt-3 flex items-center justify-between text-xs text-slate-500">
+              <label for="export-scale" class="font-medium">Resolución PNG</label>
+              <select id="export-scale" class="rounded-lg border border-slate-800 bg-slate-950 px-2 py-1 text-xs text-slate-300 outline-none focus:border-sky-500">
+                <option value="512">512 px</option>
+                <option value="1024" selected>1024 px</option>
+                <option value="2048">2048 px</option>
+                <option value="4096">4096 px</option>
+              </select>
+            </div>
+            <p class="mt-2 text-[11px] leading-relaxed text-slate-500">
+              Pega en PowerPoint con <kbd class="rounded border border-slate-700 bg-slate-800 px-1">Ctrl</kbd>+<kbd class="rounded border border-slate-700 bg-slate-800 px-1">V</kbd>: el PNG conserva el fondo transparente.
+            </p>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+    <footer class="mt-10 border-t border-slate-800/70 pt-6 text-center text-xs text-slate-600">
+      Geometría vectorial de <a href="https://lucide.dev" target="_blank" rel="noopener noreferrer" class="underline hover:text-slate-400">Lucide</a> (licencia ISC).
+      Búsqueda semántica ES/EN y motor de personalización propios · 100 % en el navegador.
+    </footer>
+  </main>
+
+  <!-- ===================== TOASTS ===================== -->
+  <div id="toast-root" class="pointer-events-none fixed inset-x-0 bottom-0 z-50 flex flex-col items-center gap-2 p-4 sm:items-end sm:p-6"></div>
+
+  <script src="./src/data/icons.js"></script>
+  <script src="./src/js/toast.js"></script>
+  <script src="./src/js/search.js"></script>
+  <script src="./src/js/svg.js"></script>
+  <script src="./src/js/customize.js"></script>
+  <script src="./src/js/export.js"></script>
+  <script src="./src/js/app.js"></script>
+</body>
+</html>

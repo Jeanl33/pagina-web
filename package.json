@@ -1,0 +1,20 @@
+{
+  "name": "iconlab",
+  "version": "1.0.0",
+  "description": "Buscador y editor de íconos vectoriales con exportación PNG transparente lista para PowerPoint.",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "build:icons": "node tools/build-icons.mjs",
+    "build:css": "tailwindcss -i ./src/input.css -o ./assets/styles.css --minify",
+    "build": "npm run build:icons && npm run build:css",
+    "watch:css": "tailwindcss -i ./src/input.css -o ./assets/styles.css --watch",
+    "dev": "node tools/serve.mjs",
+    "test": "node tests/e2e.mjs"
+  },
+  "devDependencies": {
+    "lucide-static": "1.42.0",
+    "playwright": "^1.56.1",
+    "tailwindcss": "3.4.17"
+  }
+}

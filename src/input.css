@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    font-family: theme('fontFamily.sans');
+  }
+}
+
+@layer components {
+  /* Trama de fondo transparente estilo editor gráfico. */
+  .checkerboard {
+    background-color: #0f172a;
+    background-image:
+      linear-gradient(45deg, #1e293b 25%, transparent 25%),
+      linear-gradient(-45deg, #1e293b 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, #1e293b 75%),
+      linear-gradient(-45deg, transparent 75%, #1e293b 75%);
+    background-size: 16px 16px;
+    background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+  }
+
+  /* Sliders con apariencia consistente entre navegadores. */
+  .range {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    border-radius: 9999px;
+    background: #1e293b;
+    outline: none;
+  }
+  .range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 9999px;
+    background: #38bdf8;
+    border: 2px solid #0f172a;
+    cursor: pointer;
+    box-shadow: 0 0 0 1px #0ea5e9;
+  }
+  .range::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 9999px;
+    background: #38bdf8;
+    border: 2px solid #0f172a;
+    cursor: pointer;
+  }
+  .range:focus-visible::-webkit-slider-thumb {
+    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.35);
+  }
+}

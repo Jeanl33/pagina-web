@@ -1,0 +1,12 @@
+{
+  "hard-hat":  { "c": "Negocio", "k": ["seguridad industrial","casco","obra","construccion","operaciones","hard hat","safety","construction","site"] },
+  "tag":       { "c": "Negocio", "k": ["etiqueta","precio","categoria","marca","promocion","tag","label","price","category"] },
+  "chess-knight": { "c": "Estrategia", "k": ["estrategia","tactica","movimiento","ajedrez","juego estrategico","strategy","tactic","chess","move"] },
+  "hand-helping": { "c": "Personas", "k": ["apoyo","soporte","ayuda","acompanamiento","asesoria","support","help","assist","guidance"] },
+  "signal":    { "c": "Datos", "k": ["senal","cobertura","intensidad","nivel","signal","coverage","strength"] },
+  "banknote-arrow-up": { "c": "Finanzas", "k": ["aumento de ingresos","mayor facturacion","revenue up","income increase"] },
+  "circle-percent": { "c": "Finanzas", "k": ["descuento","porcentaje","tasa","discount","percent","rate"] },
+  "square-user": { "c": "Personas", "k": ["perfil","foto de usuario","cuenta","user profile","account"] },
+  "list-todo": { "c": "Productividad", "k": ["pendientes","tareas","backlog","to do","tasks","pending"] },
+  "calendar-days": { "c": "Productividad", "k": ["agenda","calendario mensual","planificacion","calendar","schedule","month"] }
+}
