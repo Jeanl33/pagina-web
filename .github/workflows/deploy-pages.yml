@@ -1,0 +1,57 @@
+name: Desplegar en GitHub Pages
+
+on:
+  push:
+    branches:
+      - claude/icon-generator-pptx-8rlvib
+  workflow_dispatch:
+
+# Permisos mínimos que exige el despliegue a Pages.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Un despliegue a la vez; no se cancela el que ya está en curso.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Preparar sitio estático
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar (y habilitar) GitHub Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Reunir los archivos publicables
+        run: |
+          mkdir -p _site
+          cp index.html LICENSE _site/
+          cp -r assets src _site/
+          # src/input.css sólo se usa en desarrollo: no se publica.
+          rm -f _site/src/input.css
+          ls -R _site | head -30
+
+      - name: Subir el artefacto
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    name: Publicar
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Desplegar a GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
